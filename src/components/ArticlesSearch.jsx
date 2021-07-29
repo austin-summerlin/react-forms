@@ -17,7 +17,7 @@ const ArticlesSearch = ({ searchInput, onSearchInputChange, onSubmit }) => (
   </>
 );
 
-ArticlesSearch.PropTypes = {
+ArticlesSearch.propTypes = {
   searchInput: PropTypes.string.isRequired,
   onSearchInputChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
