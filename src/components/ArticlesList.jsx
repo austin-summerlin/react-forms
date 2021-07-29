@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Article from './Article';
 
-function ArticlesList({ articles }) {
+const ArticlesList = ({ articles }) => {
   return (
     <ul aria-label="articles">
       {articles.map(article => {

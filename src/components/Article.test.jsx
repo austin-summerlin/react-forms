@@ -6,7 +6,7 @@ import { render } from '@testing-library/react';
 import Article from './Article';
 
 describe('Atricle Component', () => {
-  it.only('should render', () => {
+  it('should render', () => {
     const article = {
       title: 'Test',
       author: 'Test Author',
