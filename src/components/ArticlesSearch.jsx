@@ -1,25 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ArticlesSearch = ({ searchInput, onSearchInputChange, onSubmit }) => (
+const ArticlesSearch = ({ search, onChange, onSubmit }) => (
   <>
     <form onSubmit={onSubmit}>
-      <label htmlFor="searchInput">Search</label>
+      <label htmlFor="search">Search</label>
       <input
-        id="searchInput"
-        type="text"
-        value={searchInput}
-        onChange={onSearchInputChange}
+        id="search"
+        type="search"
+        value={search}
+        onChange={onChange}
         placeholder="Search"
       />
-      <button type="submit" aria-label="get-articles">Search</button>
+      <button>Search</button>
     </form>
   </>
 );
 
 ArticlesSearch.propTypes = {
-  searchInput: PropTypes.string.isRequired,
-  onSearchInputChange: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 

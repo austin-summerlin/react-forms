@@ -16,7 +16,6 @@ function ArticlesList({ articles }) {
               borderRadius: '5px',
               margin: '2px',
               width: '50%',
-              backgroundColor: 'slate'
             }}
           >
             <Article article={article} />
@@ -34,7 +33,6 @@ ArticlesList.propTypes = {
       author: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
-      image: PropTypes.string,
     })
   ).isRequired
 };

@@ -6,44 +6,43 @@ import ArticlesSearch from '../components/ArticlesSearch';
 
 export default class NewsSearchContainer extends Component {
   state = {
-    loading: true,
     articles: [],
-    searchInput: '',
+    search: '',
+    loading: true,
   };
 
   async componentDidMount() {
     const articles = await fetchNews();
-
     this.setState({
-      loading: false,
       articles,
+      loading: false,
     });
   }
 
-  onSearchInputChange = (event) => {
-    this.setState({ searchInput: event.target.value });
+  handleChange = (target) => {
+    this.setState({ search: target.value });
   };
 
-  onSubmit = async (event) => {
-    event.preventDefault();
+  handleSubmit = async (e) => {
+    e.preventDefault();
     this.setState({ loading: true });
     const articles = await SearchArticles(this.state.searchInput);
     this.setState({
-      loading: false,
       articles,
       searchInput: '',
+      loading: false,
     });
   };
 
   render() {
-    const { articles, loading, searchInput } = this.state;
+    const { articles, loading, search } = this.state;
     if (loading) return <h1>Gathering Results...</h1>;
     return (
       <>
         <ArticlesSearch
-          onSubmit={this.onSubmit}
-          onSearchQueryChange={this.onSeachInputChange}
-          searchInput={searchInput}
+          search={search}
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
         />
         <ArticlesList
           articles={articles}
