@@ -8,14 +8,14 @@ function ArticlesList({ articles }) {
       {articles.map(article => {
         return (
           <li
-            key={article.title + article.url}
-            ddata-testid="article-li"
+            key={article.url}
             style={{
               listStyle: 'none',
               border: '1px solid pink',
               borderRadius: '5px',
               margin: '2px',
               width: '50%',
+              backgroundColor: 'lightpink'
             }}
           >
             <Article article={article} />
@@ -31,7 +31,6 @@ ArticlesList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
     })
   ).isRequired

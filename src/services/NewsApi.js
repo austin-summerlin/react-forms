@@ -6,9 +6,7 @@ export const fetchNews = async () => {
   return articles.map(article => ({
     title: article.title,
     author: article.author,
-    description: article.description,
     url: article.url,
-    image: article.urlToImage,
   }));
 };
 
@@ -20,9 +18,7 @@ export async function SearchArticles(searchInput) {
   return articles.map(article => ({
     title: article.title,
     author: article.author,
-    description: article.description,
     url: article.url,
-    image: article.urlToImage,
   }));
 }
 

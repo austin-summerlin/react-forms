@@ -12,7 +12,7 @@ const ArticlesSearch = ({ search, onChange, onSubmit }) => (
         onChange={onChange}
         placeholder="Search"
       />
-      <button>Search</button>
+      <button aria-label="button">Search</button>
     </form>
   </>
 );
