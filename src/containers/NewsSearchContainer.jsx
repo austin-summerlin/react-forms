@@ -7,7 +7,7 @@ import ArticlesSearch from '../components/ArticlesSearch';
 export default class NewsSearchContainer extends Component {
   state = {
     articles: [],
-    search: '',
+    search: 'berlin',
     loading: true,
   };
 
