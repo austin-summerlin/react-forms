@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Article({ article }) {
-  return (
-    <>
-      <h1>{article.title}</h1>
-      <p>{article.author}</p>
-      <p>{article.url}</p>
-    </>
-  );
-}
+const Article = ({ title, author, url }) => (
+  <>
+    <h1>title = {title}</h1>
+    <p>author = {author}</p>
+    <p>url = {url}</p>
+  </>
+);
+
 
 Article.propTypes = {
   article: PropTypes.shape({
