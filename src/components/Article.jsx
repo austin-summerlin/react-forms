@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 
 const Article = ({ title, author, url }) => (
   <>
-    <h1>title = {title}</h1>
-    <p>author = {author}</p>
-    <p>url = {url}</p>
+    <h1>{title}</h1>
+    <p>{author}</p>
+    <a href={url}>Read more</a>
   </>
 );
 
-
 Article.propTypes = {
-  article: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-  })
+  title: PropTypes.string,
+  author: PropTypes.string,
+  url: PropTypes.string,
+
 };
 
 export default Article;

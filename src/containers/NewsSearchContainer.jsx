@@ -6,9 +6,10 @@ import ArticlesSearch from '../components/ArticlesSearch';
 
 export default class NewsSearchContainer extends Component {
   state = {
+    searchInput: '',
     articles: [],
-    search: 'berlin',
     loading: true,
+    initialLoad: true,
   };
 
   async componentDidMount() {
@@ -20,34 +21,36 @@ export default class NewsSearchContainer extends Component {
   }
 
   handleChange = (target) => {
-    this.setState({ search: target.value });
+    this.setState({ searchInput: target.value });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    this.setState({ loading: true });
-    const articles = await SearchArticles(this.state.searchInput);
+    this.setState({ articles, loading: true });
+    const articles = await SearchArticles(this.state.search);
     this.setState({
       articles,
-      searchInput: '',
       loading: false,
+      initialLoad: false,
     });
   };
 
   render() {
-    const { articles, loading, search } = this.state;
+    const { articles, loading, searchInput, initialLoad } = this.state;
     if (loading) return <h1>Gathering Results...</h1>;
     return (
-      <>
+      <div>
         <ArticlesSearch
-          search={search}
+          search={searchInput}
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
         />
-        <ArticlesList
-          articles={articles}
-        />
-      </>
+        {initialLoad
+          ? <h1>Gathering Results...</h1>
+          : <h1>Here are you results for {searchInput}</h1>
+        }
+        <ArticlesList search={searchInput} articles={articles} />
+      </div>
     );
   }
 }
